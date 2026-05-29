@@ -1,7 +1,5 @@
 import axiosInstance from './axiosinstance';
 
-// ─── AUTH ────────────────────────────────────────────────────────────────────
-
 export const authAPI = {
   register: (body) => axiosInstance.post('/auth/register', body),
 
@@ -17,8 +15,6 @@ export const authAPI = {
 
   deleteAccount: () => axiosInstance.delete('/auth/account'),
 };
-
-// ─── PRESCRIPTIONS ───────────────────────────────────────────────────────────
 
 export const prescriptionAPI = {
   create: (body) => axiosInstance.post('/prescriptions', body),

@@ -49,8 +49,7 @@ const CreatePrescription = () => {
 
       {error && <div className="bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-lg px-4 py-3 mb-5">{error}</div>}
 
-      <div className="flex flex-col gap-5">
-        {/* Patient info */}
+      <div className="flex flex-col gap-5">}
         <div className="bg-[#1e293b] rounded-xl border border-white/10 shadow-sm p-5">
           <h3 className="text-sm font-medium text-white mb-4">Patient Information</h3>
           <div className="grid grid-cols-[1.2fr_1fr_90px] gap-3.5">
@@ -69,13 +68,11 @@ const CreatePrescription = () => {
           </div>
         </div>
 
-        {/* Diagnosis */}
         <div className="bg-[#1e293b] rounded-xl border border-white/10 shadow-sm p-5">
           <h3 className="text-sm font-medium text-white mb-4">Diagnosis</h3>
           <textarea rows={3} className={inputCls} placeholder="Describe the diagnosis..." value={form.diagnosis} onChange={handleField('diagnosis')} required />
         </div>
 
-        {/* Medicines */}
         <div className="bg-[#1e293b] rounded-xl border border-white/10 shadow-sm p-5">
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-sm font-medium text-white">Medicines</h3>
@@ -104,7 +101,7 @@ const CreatePrescription = () => {
           ))}
         </div>
 
-        {/* Notes */}
+
         <div className="bg-[#1e293b] rounded-xl border border-white/10 shadow-sm p-5">
           <h3 className="text-sm font-medium text-white mb-4">
             Additional Notes <span className="font-normal text-slate-400">(optional)</span>

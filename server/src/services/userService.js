@@ -4,9 +4,6 @@ const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = require('../middleware/auth');
 
 class UserService {
-  /**
-   * Register a new user
-   */
   async registerUser({ email, password, role, name, phoneNumber, signature }) {
     if (!email || !password || !role || !name || !phoneNumber) {
       throw new ApiError(400, 'All fields (email, password, role, name, phoneNumber) are required.');
@@ -55,9 +52,6 @@ class UserService {
     };
   }
 
-  /**
-   * Log in an existing user
-   */
   async loginUser({ email, password }) {
     if (!email || !password) {
       throw new ApiError(400, 'Email and password are required.');
@@ -88,9 +82,6 @@ class UserService {
     };
   }
 
-  /**
-   * Get user details by ID
-   */
   async getUserById(id) {
     const user = await User.findById(id).select('-password');
     if (!user) {
@@ -99,21 +90,16 @@ class UserService {
     return user;
   }
 
-  /**
-   * Update profile fields (name, email, phoneNumber, signature)
-   */
   async updateProfile(id, { name, email, phoneNumber, signature }) {
     const user = await User.findById(id);
     if (!user) throw new ApiError(404, 'User not found.');
 
-    // Check email uniqueness (skip if unchanged)
     if (email && email !== user.email) {
       const taken = await User.findOne({ email });
       if (taken) throw new ApiError(400, 'Email is already in use by another account.');
       user.email = email;
     }
 
-    // Check phone uniqueness (skip if unchanged)
     if (phoneNumber && phoneNumber !== user.phoneNumber) {
       const taken = await User.findOne({ phoneNumber });
       if (taken) throw new ApiError(400, 'Phone number is already in use by another account.');
@@ -135,9 +121,6 @@ class UserService {
     };
   }
 
-  /**
-   * Change password — verifies current password first
-   */
   async changePassword(id, { currentPassword, newPassword }) {
     if (!currentPassword || !newPassword) {
       throw new ApiError(400, 'Both current and new password are required.');
@@ -156,17 +139,11 @@ class UserService {
     await user.save();
   }
 
-  /**
-   * Delete account permanently
-   */
   async deleteAccount(id) {
     const user = await User.findByIdAndDelete(id);
     if (!user) throw new ApiError(404, 'User not found.');
   }
 
-  /**
-   * Generate JWT for a user
-   */
   generateToken(user) {
     return jwt.sign(
       { id: user._id, email: user.email, role: user.role, name: user.name },

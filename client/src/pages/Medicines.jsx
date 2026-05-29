@@ -14,7 +14,7 @@ const Medicines = () => {
         setMedicines(data.medicines || []);
         setFiltered(data.medicines || []);
       })
-      .catch(console.error)
+      .catch(() => {})
       .finally(() => setLoading(false));
   }, []);
 

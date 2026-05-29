@@ -39,7 +39,6 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
-  // Pull fresh user data from server and update context
   const refreshUser = async () => {
     const data = await authAPI.me();
     setUser(data.user);

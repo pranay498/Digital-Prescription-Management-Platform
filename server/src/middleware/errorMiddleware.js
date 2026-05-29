@@ -11,11 +11,7 @@ const errorMiddleware = (err, req, res, next) => {
     error = new ApiError(statusCode, message, error.errors || [], err.stack);
   }
 
-  // Log the error
   logger.error(`${req.method} ${req.url} - Status: ${error.statusCode} - Error: ${error.message}`);
-  if (error.stack && process.env.NODE_ENV !== 'production') {
-    console.error(error.stack);
-  }
 
   const response = {
     success: false,

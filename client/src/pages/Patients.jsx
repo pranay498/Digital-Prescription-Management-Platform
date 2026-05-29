@@ -28,7 +28,7 @@ const Patients = () => {
         setPatients(data.patients || []);
         setFiltered(data.patients || []);
       })
-      .catch(console.error)
+      .catch(() => {})
       .finally(() => setLoading(false));
   }, []);
 

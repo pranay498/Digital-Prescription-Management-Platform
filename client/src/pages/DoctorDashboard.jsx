@@ -30,7 +30,7 @@ const DoctorDashboard = () => {
           setFiltered(rxList);
         }
       })
-      .catch(console.error)
+      .catch(() => {})
       .finally(() => setLoading(false));
   };
 
@@ -41,9 +41,8 @@ const DoctorDashboard = () => {
   const updateStatus = async (prescriptionId, newStatus) => {
     try {
       await prescriptionAPI.updateStatus(prescriptionId, newStatus);
-      fetchPrescriptions(); // re-fetch to update UI
+      fetchPrescriptions();
     } catch (err) {
-      console.error('Status update failed', err);
     }
   };
 

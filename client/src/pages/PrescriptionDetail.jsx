@@ -20,7 +20,7 @@ const PrescriptionDetail = () => {
   useEffect(() => {
     prescriptionAPI.getById(id)
       .then((data) => setRx(data.prescription))
-      .catch(console.error)
+      .catch(() => {})
       .finally(() => setLoading(false));
   }, [id]);
 
@@ -53,7 +53,6 @@ const PrescriptionDetail = () => {
         <div className="text-center py-20 text-slate-400 text-sm">Prescription not found</div>
       ) : (
         <div className="bg-[#1e293b] rounded-2xl border border-white/10 shadow-sm p-9">
-          {/* Header */}
           <div className="flex justify-between items-start pb-5 border-b-2 border-indigo-500 mb-6">
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 bg-indigo-600 rounded-xl flex items-center justify-center text-xl text-white">✚</div>

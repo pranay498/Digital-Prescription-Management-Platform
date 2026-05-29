@@ -8,8 +8,6 @@ const axiosInstance = axios.create({
   },
 });
 
-// ─── REQUEST INTERCEPTOR ─────────────────────────────────────────────────────
-// Attach JWT token to every request automatically
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -21,8 +19,6 @@ axiosInstance.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// ─── RESPONSE INTERCEPTOR ────────────────────────────────────────────────────
-// Unwrap .data, handle 401 globally (auto logout)
 axiosInstance.interceptors.response.use(
   (response) => {
     if (response.config.responseType === 'blob') {
@@ -34,7 +30,6 @@ axiosInstance.interceptors.response.use(
     const status = error.response?.status;
     const message = error.response?.data?.message || error.message || 'Something went wrong';
 
-    // Token expired or invalid → clear session and redirect to login
     if (status === 401) {
       localStorage.removeItem('token');
       window.location.href = '/login';

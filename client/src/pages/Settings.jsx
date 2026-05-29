@@ -7,7 +7,6 @@ import {
   CheckCircle, XCircle, Eye, EyeOff, LogOut, Trash2
 } from 'lucide-react';
 
-// ─── Small helpers ─────────────────────────────────────────────────────────────
 const inputCls =
   'w-full border border-white/10 rounded-lg px-3 py-2.5 text-sm outline-none ' +
   'focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all ' +
@@ -46,7 +45,6 @@ const TABS = [
   { id: 'danger',    label: 'Danger Zone', icon: AlertTriangle },
 ];
 
-// ─── Main Component ────────────────────────────────────────────────────────────
 const Settings = () => {
   const { user, refreshUser, logout, setUser } = useAuth();
   const navigate = useNavigate();
@@ -62,17 +60,14 @@ const Settings = () => {
   });
   const [profileLoading, setProfileLoading] = useState(false);
 
-  // Password form
   const [passwords, setPasswords] = useState({ currentPassword: '', newPassword: '', confirmPassword: '' });
   const [showCurrent, setShowCurrent] = useState(false);
   const [showNew, setShowNew] = useState(false);
   const [passwordLoading, setPasswordLoading] = useState(false);
 
-  // Signature form
   const [signature, setSignature] = useState(user?.signature || '');
   const [sigLoading, setSigLoading] = useState(false);
 
-  // Danger zone
   const [deleteConfirm, setDeleteConfirm] = useState('');
   const [deleting, setDeleting] = useState(false);
 
@@ -81,7 +76,6 @@ const Settings = () => {
     setTimeout(() => setToast({ type: '', message: '' }), 4000);
   };
 
-  // ─── Handlers ────────────────────────────────────────────────────────────────
   const handleProfileSave = async (e) => {
     e.preventDefault();
     setProfileLoading(true);
@@ -145,10 +139,8 @@ const Settings = () => {
     navigate('/login');
   };
 
-  // ─── Tabs to show ────────────────────────────────────────────────────────────
   const visibleTabs = TABS.filter((t) => !t.doctorOnly || user?.role === 'doctor');
 
-  // ─── Render ──────────────────────────────────────────────────────────────────
   return (
     <div className="max-w-3xl mx-auto w-full pb-12">
       {/* Toast */}

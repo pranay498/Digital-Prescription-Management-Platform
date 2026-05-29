@@ -2,7 +2,6 @@ const userService = require('../services/userService');
 const ApiResponse = require('../utils/ApiResponse');
 const asyncHandler = require('../utils/asyncHandler');
 
-// Helper to set token cookie
 const setTokenCookie = (res, token) => {
   const cookieOptions = {
     httpOnly: true,
@@ -17,7 +16,6 @@ const register = asyncHandler(async (req, res) => {
   const { email, password, role, name, phoneNumber, signature } = req.body;
   const result = await userService.registerUser({ email, password, role, name, phoneNumber, signature });
   
-  // Set JWT as cookie
   setTokenCookie(res, result.token);
 
   res.status(201).json(new ApiResponse(201, { user: result.user, token: result.token }, 'User registered successfully.'));
@@ -27,7 +25,6 @@ const login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const result = await userService.loginUser({ email, password });
   
-  // Set JWT as cookie
   setTokenCookie(res, result.token);
 
   res.status(200).json(new ApiResponse(200, { user: result.user, token: result.token }, 'User logged in successfully.'));

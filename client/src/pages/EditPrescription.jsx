@@ -17,7 +17,6 @@ const EditPrescription = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
 
-  // ─── Load existing prescription ──────────────────────────────────────────────
   useEffect(() => {
     prescriptionAPI.getById(id)
       .then(({ prescription }) => {
@@ -36,7 +35,6 @@ const EditPrescription = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-  // ─── Handlers ────────────────────────────────────────────────────────────────
   const handleField = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
 
   const handleMedicine = (index, field, value) => {
@@ -67,11 +65,9 @@ const EditPrescription = () => {
     }
   };
 
-  // ─── Styles ──────────────────────────────────────────────────────────────────
   const inputCls = 'w-full border border-white/10 rounded-lg px-3 py-2 text-sm outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all bg-[#0f172a] text-white placeholder-slate-500';
   const labelCls = 'block text-xs font-medium text-slate-400 mb-1.5';
 
-  // ─── Render ──────────────────────────────────────────────────────────────────
   if (loading) {
     return (
       <div className="flex justify-center py-24">

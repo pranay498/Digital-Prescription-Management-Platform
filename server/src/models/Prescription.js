@@ -76,7 +76,6 @@ const PrescriptionSchema = new mongoose.Schema({
     timestamps: true
   });
 
-// Transform to include doctorName for frontend compatibility
 PrescriptionSchema.set('toJSON', {
   virtuals: true,
   transform: (doc, ret) => {

@@ -1,29 +1,18 @@
 const PDFDocument = require('pdfkit');
 
 class PdfService {
-  /**
-   * Generates a formatted prescription PDF and pipes it directly to the response stream.
-   * This is a synchronous drawing operation that consumes a pre-fetched prescription object.
-   * 
-   * @param {Object} prescription - The populated prescription document.
-   * @param {Object} res - Express response object.
-   */
   generatePrescriptionPDF(prescription, res) {
-    // Set Response Headers for file download
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader(
       'Content-Disposition',
       `attachment; filename=Prescription_${prescription._id.toString().substring(0, 8)}.pdf`
     );
 
-    // Create PDF Document using PDFKit
     const doc = new PDFDocument({ margin: 50, size: 'A4' });
 
-    // Stream PDF directly to HTTP response
     doc.pipe(res);
 
-    // --- Header ---
-    doc.fillColor('#0f172a') // dark text
+    doc.fillColor('#0f172a')
        .font('Helvetica-Bold')
        .fontSize(26)
        .text('RxManager', 50, 50);
@@ -33,23 +22,19 @@ class PdfService {
        .fillColor('#64748b')
        .text('Official Digital Prescription Platform', 50, 80);
 
-    // Watermark/Decorative Rx Symbol top right
     doc.fontSize(40)
        .font('Times-BoldItalic')
        .fillColor('#3b82f6')
        .text('Rx', doc.page.width - 100, 45, { align: 'right' });
 
-    // Decorative Horizontal Line
     doc.moveTo(50, 100)
        .lineTo(doc.page.width - 50, 100)
        .lineWidth(1)
        .strokeColor('#e2e8f0')
        .stroke();
 
-    // --- Metadata Block (Doctor & Patient Columns) ---
-    doc.y = 120; // reset y position
+    doc.y = 120;
 
-    // Doctor Column (Left)
     doc.font('Helvetica-Bold')
        .fontSize(12)
        .fillColor('#1e293b')
@@ -65,7 +50,6 @@ class PdfService {
        .fillColor('#475569')
        .text(`Email: ${prescription.doctor.email}`, 50, 155);
 
-    // Patient Column (Right)
     doc.font('Helvetica-Bold')
        .fontSize(12)
        .fillColor('#1e293b')
@@ -81,7 +65,6 @@ class PdfService {
        .fillColor('#475569')
        .text(`Email: ${prescription.patient.email}`, 300, 155);
 
-    // Issue/Expiry Info
     doc.y = 190;
     doc.font('Helvetica-Bold')
        .fontSize(10)
@@ -90,7 +73,6 @@ class PdfService {
        .font('Helvetica')
        .text(new Date(prescription.createdAt).toLocaleDateString());
 
-    // Fallback to 30 days after creation if no expiration date is defined
     const expiry = prescription.expirationDate || new Date(new Date(prescription.createdAt).getTime() + 30 * 24 * 60 * 60 * 1000);
     doc.font('Helvetica-Bold')
        .text('Date of Expiry: ', 300, 190, { continued: true })
@@ -104,7 +86,6 @@ class PdfService {
        .strokeColor('#e2e8f0')
        .stroke();
 
-    // --- Prescription Body ---
     doc.y = 240;
 
     const medicinesCount = prescription.medicines ? prescription.medicines.length : 0;

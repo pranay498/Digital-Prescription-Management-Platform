@@ -40,9 +40,7 @@ const getPrescriptionDetails = asyncHandler(async (req, res) => {
 
 const generatePrescriptionPDF = asyncHandler(async (req, res) => {
   const prescriptionId = req.params.id;
-  // Fetch prescription details and verify user auth (async)
   const prescription = await prescriptionService.getPrescriptionDetails(prescriptionId, req.user);
-  // Generate PDF (sync rendering and streaming)
   pdfService.generatePrescriptionPDF(prescription, res);
 });
 

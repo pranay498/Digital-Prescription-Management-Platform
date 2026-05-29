@@ -12,7 +12,7 @@ const PatientDashboard = () => {
   useEffect(() => {
     prescriptionAPI.getPatientPrescriptions()
       .then((data) => { setPrescriptions(data.prescriptions || []); setFiltered(data.prescriptions || []); })
-      .catch(console.error)
+      .catch(() => {})
       .finally(() => setLoading(false));
   }, []);
 
