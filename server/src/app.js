@@ -41,7 +41,7 @@ app.use('/api/prescriptions', prescriptionRoutes);
 // Centralized Error Handling Middleware
 app.use(errorMiddleware);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => {
   logger.info(`Server is running on port ${PORT}`);
 });
