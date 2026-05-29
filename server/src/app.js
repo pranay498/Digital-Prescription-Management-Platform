@@ -11,7 +11,7 @@ const app = express();
 connectDB();
 
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173' ||"https://digital-heal.netlify.app",
+  origin:'http://localhost:5173' || "https://digital-heal.netlify.app",
   credentials: true
 }));
 app.use(cookieParser());
@@ -29,9 +29,11 @@ app.get('/', (req, res) => {
 
 const authRoutes = require('./routes/auth');
 const prescriptionRoutes = require('./routes/prescriptions');
+const chatRoutes = require('./routes/chat');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/prescriptions', prescriptionRoutes);
+app.use('/api/chat', chatRoutes);
 
 app.use(errorMiddleware);
 

@@ -28,7 +28,7 @@ const Navbar = ({ toggleSidebar }) => {
         <div className="flex flex-col justify-center">
           <h2 className="text-base md:text-2xl font-bold text-white tracking-wide leading-tight flex items-center gap-1.5">
             <span className="truncate max-w-[140px] md:max-w-none">Good morning, {user?.name?.split(' ')[0] || 'Dr.'}</span>
-            <span className="text-sm md:text-xl shrink-0">👋</span>
+            <span className="text-sm md:text-xl shrink-0"></span>
           </h2>
           <p className="text-[10px] md:text-sm text-[var(--color-text-secondary)] font-medium mt-0.5">
             {today}

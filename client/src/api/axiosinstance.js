@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'https://digital-prescription-management-platform-0neo.onrender.com/api',
+  baseURL:'http://localhost:9000/api',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',

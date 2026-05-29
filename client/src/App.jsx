@@ -10,6 +10,7 @@ import PrescriptionDetail from './pages/PrescriptionDetail';
 import Patients from './pages/Patients';
 import Medicines from './pages/Medicines';
 import Settings from './pages/Settings';
+import ChatAssistant from './pages/ChatAssistant';
 import DashboardLayout from './components/DashboardLayout';
 
 const ProtectedRoute = ({ children, role }) => {
@@ -98,6 +99,7 @@ const App = () => (
           {/* Shared routes */}
           <Route path="/appointments" element={<PlaceholderPage title="Appointments" />} />
           <Route path="/analytics" element={<PlaceholderPage title="Analytics" />} />
+          <Route path="/assistant" element={<ChatAssistant />} />
           <Route path="/settings" element={<Settings />} />
         </Route>
 

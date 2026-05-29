@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Home, FileText, Users, Pill, Calendar, BarChart2, Settings, X } from 'lucide-react';
+import { Home, FileText, Users, Pill, Calendar, BarChart2, Settings, X, MessageSquare } from 'lucide-react';
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
   const { user } = useAuth();
@@ -10,8 +10,10 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
     { name: 'Dashboard', path: '/doctor', icon: Home },
     { name: 'Patients', path: '/doctor/patients', icon: Users },
     { name: 'Medicines', path: '/doctor/medicines', icon: Pill },
+    { name: 'Assistant', path: '/assistant', icon: MessageSquare },
   ] : [
     { name: 'Dashboard', path: '/patient', icon: Home },
+    { name: 'Assistant', path: '/assistant', icon: MessageSquare },
   ];
 
   const accountNav = [

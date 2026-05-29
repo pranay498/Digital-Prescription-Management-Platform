@@ -45,3 +45,7 @@ export const prescriptionAPI = {
     window.URL.revokeObjectURL(url);
   },
 };
+
+export const chatAPI = {
+  sendMessage: (message, history) => axiosInstance.post('/chat', { message, history }),
+};
