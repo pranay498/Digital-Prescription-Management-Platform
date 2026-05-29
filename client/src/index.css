@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap');
+@import "tailwindcss";
+ 
+@theme {
+  --font-sans: 'DM Sans', sans-serif;
+  --font-serif: 'DM Serif Display', serif;
+  --color-page: #0f121b;
+  --color-sidebar: #171b29;
+  --color-cards: #171b29;
+  --color-accent: #6366f1;
+  --color-active: #10b981;
+  --color-pending: #f59e0b;
+  --color-expired: #ef4444;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #8b94a8;
+  --color-border: rgba(255, 255, 255, 0.05);
+}
+ 
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--color-page);
+  color: var(--color-text-primary);
+}
+
+@keyframes fade-in-down {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-down {
+  animation: fade-in-down 0.25s ease-out both;
+}

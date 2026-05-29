@@ -1,0 +1,60 @@
+# ─── Dependencies ─────────────────────────────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+
+# ─── Build output ─────────────────────────────────────────────────────────────
+dist/
+dist-ssr/
+build/
+out/
+.next/
+.nuxt/
+.output/
+
+# ─── Environment variables ────────────────────────────────────────────────────
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ─── AI Agent & planning directories ─────────────────────────────────────────
+.agent/
+.agents/
+.planning/
+.gemini/
+.cursor/
+.aider*
+.claude/
+.continue/
+*.ai-context
+ai-context/
+
+# ─── Loose plan/implementation files dropped in root ─────────────────────────
+implementation_plan.md
+task.md
+walkthrough.md
+
+# ─── OS junk ─────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
