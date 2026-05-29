@@ -232,55 +232,6 @@ rxmanager/
 
 ---
 
-## 🔐 Environment Variables
-
-### Server (`server/.env`)
-
-| Variable | Description | Default |
-|---|---|---|
-| `PORT` | Server listen port | `9000` |
-| `MONGO_URI` | MongoDB connection string | `mongodb://rxuser:rxpass@localhost:27017/rxmanager?authSource=admin` |
-| `JWT_SECRET` | Secret key for signing JWTs | `rxmanager_fallback_secret_key` |
-| `CLIENT_URL` | Allowed CORS origin | `http://localhost:5173` |
-
-### Client (`client/.env`)
-
-| Variable | Description | Default |
-|---|---|---|
-| `VITE_API_URL` | Backend API base URL | `http://localhost:9000/api` |
-
----
-
-## 📡 API Endpoints
-
-### Authentication — `/api/auth`
-
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| `POST` | `/register` | ✗ | Register a new doctor or patient |
-| `POST` | `/login` | ✗ | Login with email & password |
-| `POST` | `/logout` | ✓ | Clear session cookie |
-| `GET` | `/me` | ✓ | Get current user profile |
-| `PATCH` | `/profile` | ✓ | Update name, email, phone, signature |
-| `PATCH` | `/password` | ✓ | Change password (requires current) |
-| `DELETE` | `/account` | ✓ | Permanently delete account |
-
-### Prescriptions — `/api/prescriptions`
-
-| Method | Endpoint | Auth | Role | Description |
-|---|---|---|---|---|
-| `POST` | `/` | ✓ | Doctor | Create a new prescription |
-| `GET` | `/doctor` | ✓ | Doctor | List all doctor's prescriptions |
-| `GET` | `/doctor/patients` | ✓ | Doctor | List unique patients with stats |
-| `GET` | `/doctor/medicines` | ✓ | Doctor | List prescribed medicines with frequency |
-| `GET` | `/patient` | ✓ | Patient | List all patient's prescriptions |
-| `GET` | `/:id` | ✓ | Both | Get prescription details |
-| `PUT` | `/:id` | ✓ | Doctor | Update prescription (full edit) |
-| `PATCH` | `/:id/status` | ✓ | Doctor | Change prescription status |
-| `GET` | `/:id/pdf` | ✓ | Both | Download prescription as PDF |
-
----
-
 ## 🤝 Contributing
 
 1. **Fork** the repository
