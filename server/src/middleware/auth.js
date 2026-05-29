@@ -19,7 +19,7 @@ const authenticate = (req, res, next) => {
     );
   }
 };
-// Middleware to enforce specific roles
+
 const requireRole = (roles) => {
   return (req, res, next) => {
     if (!req.user) {

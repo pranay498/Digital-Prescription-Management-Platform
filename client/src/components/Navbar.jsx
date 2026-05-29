@@ -13,7 +13,7 @@ const Navbar = ({ toggleSidebar }) => {
     day: 'numeric',
     month: 'short',
     year: 'numeric'
-  }); // e.g. Friday, 29 May 2026
+  }); 
 
   return (
     <header className="h-[90px] flex items-center justify-between px-4 md:px-8 bg-[var(--color-page)] sticky top-0 z-40 gap-4">

@@ -4,7 +4,7 @@ const logger = require('../utils/logger');
 const errorMiddleware = (err, req, res, next) => {
   let error = err;
 
-  // If the error is not an instance of ApiError, wrap it
+  
   if (!(error instanceof ApiError)) {
     const statusCode = error.statusCode || (error.name === 'ValidationError' ? 400 : 500);
     const message = error.message || 'Internal Server Error';

@@ -79,7 +79,7 @@ class PdfService {
        .font('Helvetica')
        .text(new Date(expiry).toLocaleDateString());
 
-    // Section Divider
+    
     doc.moveTo(50, 215)
        .lineTo(doc.page.width - 50, 215)
        .lineWidth(1)
@@ -91,7 +91,7 @@ class PdfService {
     const medicinesCount = prescription.medicines ? prescription.medicines.length : 0;
     const cardHeight = Math.max(160, 50 + medicinesCount * 45);
 
-    // Outer card styling for prescription details
+    
     doc.rect(50, 240, doc.page.width - 100, cardHeight)
        .fillColor('#f8fafc')
        .fill()
@@ -100,7 +100,7 @@ class PdfService {
        .strokeColor('#cbd5e1')
        .stroke();
 
-    // Label & Medicines Title
+    
     doc.fillColor('#0f172a');
     doc.font('Helvetica-Bold')
        .fontSize(11)
@@ -129,7 +129,7 @@ class PdfService {
          .text('No medicines prescribed.', 70, 285);
     }
 
-    // --- Signatures & Footers ---
+    
     const signatureY = 240 + cardHeight + 40;
     doc.y = signatureY;
     doc.moveTo(300, signatureY + 30)
@@ -148,14 +148,14 @@ class PdfService {
        .fillColor('#64748b')
        .text('Authorized Doctor Digital Signature', 300, signatureY + 38, { align: 'center', width: doc.page.width - 350 });
 
-    // Footer info
+    
     doc.fontSize(8)
        .fillColor('#94a3b8')
        .text(`Prescription Token: ${prescription._id.toString()}`, 50, doc.page.height - 70);
 
     doc.text('This is a secure, digital prescription issued via RxManager. Validation and compliance is maintained by state regulation guidelines.', 50, doc.page.height - 55, { width: doc.page.width - 100 });
 
-    // End Document
+    
     doc.end();
   }
 }

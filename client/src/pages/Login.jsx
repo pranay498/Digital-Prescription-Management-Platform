@@ -30,7 +30,7 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 flex items-center justify-center p-6">
       <div className="w-full max-w-md">
-        {/* Logo */}
+        {}
         <div className="text-center mb-9">
           <div className="w-13 h-13 bg-blue-600 rounded-2xl inline-flex items-center justify-center text-2xl text-white mb-3">✚</div>
           <h1 className="text-2xl text-[#0B2447] font-light" style={{ fontFamily: 'DM Serif Display, serif' }}>RxManager</h1>

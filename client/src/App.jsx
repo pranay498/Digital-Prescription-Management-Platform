@@ -60,9 +60,9 @@ const App = () => (
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Layout routes */}
+        {}
         <Route element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
-          {/* Doctor routes */}
+          {}
           <Route path="/doctor" element={
             <ProtectedRoute role="doctor"><DoctorDashboard /></ProtectedRoute>
           } />
@@ -85,7 +85,7 @@ const App = () => (
             <ProtectedRoute role="doctor"><Medicines /></ProtectedRoute>
           } />
 
-          {/* Patient routes */}
+          {}
           <Route path="/patient" element={
             <ProtectedRoute role="patient"><PatientDashboard /></ProtectedRoute>
           } />
@@ -96,7 +96,7 @@ const App = () => (
             <ProtectedRoute role="patient"><PrescriptionDetail /></ProtectedRoute>
           } />
 
-          {/* Shared routes */}
+          {}
           <Route path="/appointments" element={<PlaceholderPage title="Appointments" />} />
           <Route path="/analytics" element={<PlaceholderPage title="Analytics" />} />
           <Route path="/assistant" element={<ChatAssistant />} />

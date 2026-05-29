@@ -101,7 +101,6 @@ const CreatePrescription = () => {
           ))}
         </div>
 
-
         <div className="bg-[#1e293b] rounded-xl border border-white/10 shadow-sm p-5">
           <h3 className="text-sm font-medium text-white mb-4">
             Additional Notes <span className="font-normal text-slate-400">(optional)</span>
@@ -109,7 +108,7 @@ const CreatePrescription = () => {
           <textarea rows={3} className={inputCls} placeholder="Any special instructions or notes..." value={form.notes} onChange={handleField('notes')} />
         </div>
 
-        {/* Actions */}
+        {}
         <div className="flex gap-3 justify-end pb-6">
           <button
             onClick={() => submit(true)}

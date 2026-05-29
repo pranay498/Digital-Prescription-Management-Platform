@@ -71,7 +71,7 @@ const PrescriptionDetail = () => {
             </div>
           </div>
 
-          {/* Doctor & Patient */}
+          {}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             <div className="bg-[#0f172a] border border-white/5 rounded-xl p-4">
               <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Prescribing Doctor</div>
@@ -84,13 +84,13 @@ const PrescriptionDetail = () => {
             </div>
           </div>
 
-          {/* Diagnosis */}
+          {}
           <div className="mb-6">
             <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Diagnosis</div>
             <div className="bg-[#0f172a] border border-white/5 rounded-lg px-4 py-3 text-white font-medium text-sm">{rx.diagnosis}</div>
           </div>
 
-          {/* Medicines */}
+          {}
           <div className="mb-6">
             <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Prescribed Medicines</div>
             <div className="border border-white/10 rounded-xl overflow-hidden bg-[#0f172a]">
@@ -117,7 +117,7 @@ const PrescriptionDetail = () => {
             </div>
           </div>
 
-          {/* Notes */}
+          {}
           {rx.notes && (
             <div className="mb-7">
               <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Doctor's Notes</div>

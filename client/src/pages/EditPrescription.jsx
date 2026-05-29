@@ -86,7 +86,7 @@ const EditPrescription = () => {
 
   return (
     <div className="max-w-3xl mx-auto w-full pb-10">
-      {/* Header */}
+      {}
       <div className="flex items-center gap-3 mb-7">
         <button
           onClick={() => navigate(`/doctor/prescriptions/${id}`)}
@@ -97,7 +97,6 @@ const EditPrescription = () => {
         <h1 className="text-2xl font-semibold text-white">Edit Prescription</h1>
       </div>
 
-      {/* Error / Success banners */}
       {error && (
         <div className="bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-lg px-4 py-3 mb-5">
           {error}
@@ -111,7 +110,7 @@ const EditPrescription = () => {
 
       <div className="flex flex-col gap-5">
 
-        {/* Patient info */}
+        {}
         <div className="bg-[#1e293b] rounded-xl border border-white/10 shadow-sm p-5">
           <h3 className="text-sm font-medium text-white mb-4">Patient Information</h3>
           <div className="grid grid-cols-[1fr_90px] gap-3.5">
@@ -139,7 +138,7 @@ const EditPrescription = () => {
           </div>
         </div>
 
-        {/* Status */}
+        {}
         <div className="bg-[#1e293b] rounded-xl border border-white/10 shadow-sm p-5">
           <h3 className="text-sm font-medium text-white mb-4">Status</h3>
           <div className="flex gap-2">
@@ -164,7 +163,7 @@ const EditPrescription = () => {
           </div>
         </div>
 
-        {/* Diagnosis */}
+        {}
         <div className="bg-[#1e293b] rounded-xl border border-white/10 shadow-sm p-5">
           <h3 className="text-sm font-medium text-white mb-4">Diagnosis</h3>
           <textarea
@@ -177,7 +176,7 @@ const EditPrescription = () => {
           />
         </div>
 
-        {/* Medicines */}
+        {}
         <div className="bg-[#1e293b] rounded-xl border border-white/10 shadow-sm p-5">
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-sm font-medium text-white">Medicines</h3>
@@ -206,7 +205,7 @@ const EditPrescription = () => {
           ))}
         </div>
 
-        {/* Notes */}
+        {}
         <div className="bg-[#1e293b] rounded-xl border border-white/10 shadow-sm p-5">
           <h3 className="text-sm font-medium text-white mb-4">
             Additional Notes <span className="font-normal text-slate-400">(optional)</span>
@@ -220,7 +219,7 @@ const EditPrescription = () => {
           />
         </div>
 
-        {/* Actions */}
+        {}
         <div className="flex gap-3 justify-end pb-6">
           <button
             type="button"

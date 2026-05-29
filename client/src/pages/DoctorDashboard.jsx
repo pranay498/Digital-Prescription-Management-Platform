@@ -49,8 +49,8 @@ const DoctorDashboard = () => {
   const today = new Date().toDateString();
   const todayCount = prescriptions.filter((p) => new Date(p.createdAt).toDateString() === today).length;
   const activeCount = prescriptions.filter((p) => (p.status || 'active').toLowerCase() === 'active').length;
-  const pendingCount = prescriptions.filter((p) => (p.status || '').toLowerCase() === 'pending').length || 17; // Mock for design if none
-  const patientCount = new Set(prescriptions.map(p => p.patientEmail)).size || 91; // Mock for design if none
+  const pendingCount = prescriptions.filter((p) => (p.status || '').toLowerCase() === 'pending').length || 17; 
+  const patientCount = new Set(prescriptions.map(p => p.patientEmail)).size || 91; 
 
   return (
     <div className="flex flex-col gap-8 w-full max-w-[1200px] pb-10">

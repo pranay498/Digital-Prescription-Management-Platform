@@ -135,7 +135,7 @@ class UserService {
     const isMatch = await user.comparePassword(currentPassword);
     if (!isMatch) throw new ApiError(401, 'Current password is incorrect.');
 
-    user.password = newPassword; // pre-save hook will hash it
+    user.password = newPassword; 
     await user.save();
   }
 

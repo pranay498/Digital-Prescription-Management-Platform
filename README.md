@@ -45,6 +45,13 @@ A full-stack web application that enables **doctors** to create, manage, and iss
 - Skeleton loaders and empty-state illustrations
 - Role-based routing (automatic redirect based on `doctor` vs `patient`)
 
+### 🤖 Assistant Integration (Role-Aware)
+- **Assistant Page:** First-class, full-screen assistant chat page (`/assistant`) in the sidebar with customized suggestion chips.
+- **Floating Widget:** Global, overlaying glassmorphic chat widget (`<ChatBot />`) accessible from any view.
+- **Doctor Clinical Assistant:** Suggest typical dosages, draft digital prescriptions, and lookup drug interactions.
+- **Patient Care Companion:** Explain active prescriptions, medicine storage guidelines, and potential side-effects.
+- **Demo Mode Fallback:** Gracefully operates with simulated role guides when no API keys are supplied.
+
 ---
 
 ## 🛠 Tech Stack
@@ -58,6 +65,7 @@ A full-stack web application that enables **doctors** to create, manage, and iss
 | **Database** | MongoDB (Mongoose 8 ODM) |
 | **Auth** | JWT (cookie + Bearer token), bcryptjs for password hashing |
 | **PDF** | PDFKit — server-side A4 prescription generation |
+| **AI / Assistant** | Google Gemini API (gemini-2.5-flash) via @google/generative-ai |
 | **DevOps** | Docker, Docker Compose |
 
 ---
@@ -105,6 +113,7 @@ PORT=9000
 MONGO_URI=mongodb://rxuser:rxpass@localhost:27018/rxmanager?authSource=admin
 JWT_SECRET=your_jwt_secret_here
 CLIENT_URL=http://localhost:5173
+GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
 > If using Atlas, replace `MONGO_URI` with your Atlas connection string.
@@ -175,6 +184,7 @@ rxmanager/
 │       │   └── db.js               # Mongoose connection
 │       ├── controllers/
 │       │   ├── authController.js   # Register, login, logout, profile, password
+│       │   ├── chatController.js   # Chatbot handler
 │       │   └── prescriptionController.js
 │       ├── middleware/
 │       │   ├── auth.js             # JWT verify + role-based access
@@ -184,9 +194,11 @@ rxmanager/
 │       │   └── Prescription.js     # doctor, patient, medicines[], diagnosis, status
 │       ├── routes/
 │       │   ├── auth.js             # /api/auth/*
+│       │   ├── chat.js             # /api/chat/*
 │       │   └── prescriptions.js    # /api/prescriptions/*
 │       ├── services/
 │       │   ├── userService.js      # Auth logic, profile CRUD
+│       │   ├── chatService.js      # Google Gemini integration, context compiler
 │       │   ├── prescriptionService.js  # Prescription CRUD, patient/medicine aggregation
 │       │   └── pdfService.js       # PDFKit prescription rendering
 │       └── utils/
@@ -212,6 +224,7 @@ rxmanager/
         │   ├── DashboardLayout.jsx # Sidebar + Navbar + Outlet wrapper
         │   ├── Sidebar.jsx         # Navigation (responsive slide-in on mobile)
         │   ├── Navbar.jsx          # Top bar with greeting, search, logout
+        │   ├── ChatBot.jsx         # Floating glassmorphic chat widget
         │   ├── PrescriptionTable.jsx  # Data table with row navigation
         │   ├── PrescriptionCard.jsx   # Card view variant
         │   ├── StatCard.jsx        # Dashboard stat widget
@@ -220,6 +233,7 @@ rxmanager/
         └── pages/
             ├── Login.jsx
             ├── Register.jsx
+            ├── ChatAssistant.jsx   # Dedicated AI Assistant full chat page
             ├── DoctorDashboard.jsx
             ├── PatientDashboard.jsx
             ├── CreatePrescription.jsx

@@ -30,7 +30,7 @@ const UserSchema = new mongoose.Schema({
     trim: true
   },
   signature: {
-    type: String, // Doctor signature text representation
+    type: String, 
     default: ''
   },
   

@@ -52,7 +52,7 @@ const Settings = () => {
   const [activeTab, setActiveTab] = useState('profile');
   const [toast, setToast] = useState({ type: '', message: '' });
 
-  // Profile form
+  
   const [profile, setProfile] = useState({
     name: user?.name || '',
     email: user?.email || '',
@@ -143,16 +143,16 @@ const Settings = () => {
 
   return (
     <div className="max-w-3xl mx-auto w-full pb-12">
-      {/* Toast */}
+      {}
       <Toast type={toast.type} message={toast.message} onClose={() => setToast({ type: '', message: '' })} />
 
-      {/* Page header */}
+      {}
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-white tracking-wide">Settings</h1>
         <p className="text-sm text-slate-400 mt-1">Manage your account preferences and security</p>
       </div>
 
-      {/* Avatar + account summary */}
+      {}
       <SectionCard className="mb-6">
         <div className="flex items-center gap-5">
           <div className="w-16 h-16 rounded-2xl bg-indigo-600 flex items-center justify-center text-2xl font-bold text-white shrink-0 border border-indigo-500/30 shadow-lg shadow-indigo-900/30">
@@ -177,7 +177,7 @@ const Settings = () => {
         </div>
       </SectionCard>
 
-      {/* Tab nav */}
+      {}
       <div className="flex gap-1 mb-6 bg-[#1e293b] border border-white/10 rounded-xl p-1">
         {visibleTabs.map((tab) => {
           const Icon = tab.icon;
@@ -200,7 +200,7 @@ const Settings = () => {
         })}
       </div>
 
-      {/* ── PROFILE TAB ── */}
+      {}
       {activeTab === 'profile' && (
         <SectionCard>
           <h2 className="text-base font-bold text-white mb-5 flex items-center gap-2">
@@ -255,14 +255,14 @@ const Settings = () => {
         </SectionCard>
       )}
 
-      {/* ── PASSWORD TAB ── */}
+      {}
       {activeTab === 'password' && (
         <SectionCard>
           <h2 className="text-base font-bold text-white mb-5 flex items-center gap-2">
             <Lock size={16} className="text-indigo-400" /> Change Password
           </h2>
           <form onSubmit={handlePasswordSave} className="flex flex-col gap-4">
-            {/* Current password */}
+            {}
             <div>
               <label className={labelCls}>Current Password</label>
               <div className="relative">
@@ -284,7 +284,7 @@ const Settings = () => {
               </div>
             </div>
 
-            {/* New password */}
+            {}
             <div>
               <label className={labelCls}>New Password</label>
               <div className="relative">
@@ -305,7 +305,7 @@ const Settings = () => {
                   {showNew ? <EyeOff size={14} /> : <Eye size={14} />}
                 </button>
               </div>
-              {/* Password strength bar */}
+              {}
               {passwords.newPassword && (
                 <div className="mt-2">
                   <div className="flex gap-1 h-1">
@@ -337,7 +337,7 @@ const Settings = () => {
               )}
             </div>
 
-            {/* Confirm */}
+            {}
             <div>
               <label className={labelCls}>Confirm New Password</label>
               <input
@@ -373,7 +373,7 @@ const Settings = () => {
         </SectionCard>
       )}
 
-      {/* ── SIGNATURE TAB (doctor only) ── */}
+      {}
       {activeTab === 'signature' && user?.role === 'doctor' && (
         <SectionCard>
           <h2 className="text-base font-bold text-white mb-1 flex items-center gap-2">
@@ -394,7 +394,7 @@ const Settings = () => {
               <p className="text-[11px] text-slate-500 mt-1.5">e.g. "Dr. Rajesh Kumar, MBBS, MD – Reg. No. 12345"</p>
             </div>
 
-            {/* Live preview */}
+            {}
             <div className="bg-[#0f172a] border border-white/5 rounded-xl p-5">
               <p className="text-[10px] font-semibold uppercase tracking-widest text-slate-500 mb-3">Preview on Prescription</p>
               <div className="border-t border-indigo-500/30 pt-3 flex items-start justify-between">
@@ -426,10 +426,10 @@ const Settings = () => {
         </SectionCard>
       )}
 
-      {/* ── DANGER ZONE TAB ── */}
+      {}
       {activeTab === 'danger' && (
         <div className="flex flex-col gap-4">
-          {/* Logout */}
+          {}
           <SectionCard>
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -447,7 +447,7 @@ const Settings = () => {
             </div>
           </SectionCard>
 
-          {/* Delete account */}
+          {}
           <SectionCard className="border-red-500/20 bg-[#1e1a2b]">
             <h3 className="text-sm font-bold text-red-400 mb-1 flex items-center gap-2">
               <Trash2 size={15} /> Delete Account
