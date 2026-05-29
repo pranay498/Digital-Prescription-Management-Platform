@@ -11,7 +11,7 @@ const app = express();
 connectDB();
 
 app.use(cors({
-  origin:'http://localhost:5173' || "https://digital-heal.netlify.app",
+  origin: process.env.CLIENT_URL || 'http://localhost:5173' || "https://digital-heal.netlify.app",
   credentials: true
 }));
 app.use(cookieParser());
